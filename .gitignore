@@ -1,5 +1,5 @@
-.env
-package-lock.json
+assignment-instructions/
 
-# Dependency directories
 node_modules/
+.env
+.DS_Store
