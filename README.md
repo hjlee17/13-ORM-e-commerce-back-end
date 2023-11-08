@@ -23,6 +23,7 @@
 [The MIT License](https://opensource.org/licenses/MIT/)
 
 ## Contributing
+- [Sequelize](https://sequelize.org/docs/v6/) documentation
 - BootCampSpot
 
 
