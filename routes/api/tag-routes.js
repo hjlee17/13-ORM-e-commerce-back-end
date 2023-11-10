@@ -3,26 +3,62 @@ const { Tag, Product, ProductTag } = require('../../models');
 
 // The `/api/tags` endpoint
 
-router.get('/', (req, res) => {
-  // find all tags
-  // be sure to include its associated Product data
+// GET all tags, including its associated Product data
+router.get('/', async (req, res) => {
+  const tagData = await Tag.findAll({
+    include: [{ model: Product, through: ProductTag }],
+  });
+  res.status(200).json(tagData);
 });
 
-router.get('/:id', (req, res) => {
-  // find a single tag by its `id`
-  // be sure to include its associated Product data
+// GET a tag, by its `id` value, including its associated Product data
+router.get('/:id', async (req, res) => {
+  const tagData = await Tag.findByPk(req.params.id, {
+    include: [{ model: Product, through: ProductTag }],
+  });
+  res.status(200).json(tagData);
 });
 
-router.post('/', (req, res) => {
-  // create a new tag
+// CREATE new tag
+router.post('/', async (req, res) => {
+  const newTag = await Tag.create(req.body);
+  /* req.body should look like this...
+    {
+      "tag_name": "Orange"
+    }
+  */
+  res.json(newTag);
 });
 
-router.put('/:id', (req, res) => {
-  // update a tag's name by its `id` value
+// UPDATE a tag by its `id` value
+router.put('/:id', async (req, res) => {
+  const updatedTag = await Tag.update(
+  /* req.body should look like this...
+    {
+      "tag_name": "Orange"
+    }
+  */
+    {
+      tag_name: req.body.tag_name
+    },
+    {
+      where: {
+      id: req.params.id
+      },
+    }
+  );
+  res.json(updatedTag);
 });
 
-router.delete('/:id', (req, res) => {
-  // delete on tag by its `id` value
+
+// DELETE a tag by its `id` value
+router.delete('/:id', async (req, res) => {
+  const updatedTag = await Category.destroy({
+    where: {
+      id: req.params.id,
+    },
+  });
+  res.json(updatedTag);
 });
 
 module.exports = router;
