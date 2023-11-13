@@ -30,7 +30,7 @@ Back end for an e-commerce site.
 Click link for [video demo](https://drive.google.com/file/d/1GCzVHfIIurNg7EeRDtKlOAQVCOfbb05J/view?usp=sharing).  
 ![Demo to create the schema, seed the database, and start the application's server.](assets/13-step-1.gif)  
 
-2. GET routes for all categories, all products, and all tags being tested in Insomnia .
+2. GET routes for all categories, all products, and all tags being tested in Insomnia.
 Click link for [video demo](https://drive.google.com/file/d/1CZCkpjp5XqSN9Al24v1If8Wmz7SGn46v/view?usp=sharing).  
 ![Demo for GET routes for all categories, all products, and all tags being tested in Insomnia.](assets/13-step-2.gif) 
 
