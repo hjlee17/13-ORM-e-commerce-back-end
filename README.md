@@ -2,7 +2,7 @@
 ![License badge.](https://img.shields.io/badge/License-MIT-yellow.svg) 
 
 ## Description
-
+Back end for an e-commerce site. 
 
 ## Table of Contents
 - [Installation](#installation)
