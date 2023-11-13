@@ -11,7 +11,7 @@ router.get('/', async (req, res) => {
   res.status(200).json(categoryData);
 });
 
-// GET a category, by its `id` value, including its associated Product data
+// GET a category by its `id` value, including its associated Product data
 router.get('/:id', async (req, res) => {
   const categoryData = await Category.findByPk(req.params.id, {
     include: [{ model: Product }],

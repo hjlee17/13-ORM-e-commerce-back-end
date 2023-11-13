@@ -11,7 +11,7 @@ router.get('/', async (req, res) => {
   res.status(200).json(tagData);
 });
 
-// GET a tag, by its `id` value, including its associated Product data
+// GET a tag by its `id` value, including its associated Product data
 router.get('/:id', async (req, res) => {
   const tagData = await Tag.findByPk(req.params.id, {
     include: [{ model: Product, through: ProductTag }],
@@ -49,7 +49,6 @@ router.put('/:id', async (req, res) => {
   );
   res.json(updatedTag);
 });
-
 
 // DELETE a tag by its `id` value
 router.delete('/:id', async (req, res) => {

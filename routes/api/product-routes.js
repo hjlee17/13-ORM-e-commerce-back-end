@@ -11,7 +11,7 @@ router.get('/', async (req, res) => {
   res.status(200).json(productData);
 });
 
-// GET a product, by its `id` value, including its associated Category and Tag data
+// GET a product by its `id` value, including its associated Category and Tag data
 router.get('/:id', async (req, res) => {
   const productData = await Product.findByPk(req.params.id, {
     include: [{ model: Category}, { model: Tag }],
@@ -23,10 +23,11 @@ router.get('/:id', async (req, res) => {
 router.post('/', (req, res) => {
   /* req.body should look like this...
     {
-      product_name: "Basketball",
-      price: 200.00,
-      stock: 3,
-      tagIds: [1, 2, 3, 4]
+      "product_name": "Basketball",
+      "price": "200.00",
+      "stock": "3",
+      "category_id": "10",
+      "tagIds": [1, 2, 3, 4]
     }
   */
   Product.create(req.body)
@@ -50,8 +51,6 @@ router.post('/', (req, res) => {
       res.status(400).json(err);
     });
 });
-
-
 
 // UPDATE a product by its `id` value
 router.put('/:id', (req, res) => {
